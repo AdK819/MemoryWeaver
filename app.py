@@ -58,41 +58,55 @@ div.block-container {
     border-radius: 50%;
     box-shadow: 2px 4px 6px rgba(0,0,0,0.65), inset -1px -1px 2px rgba(0,0,0,0.4);
     position: absolute;
-    z-index: 20;
+    z-index: 30;
 }
-.pin-tl { top: -9px; left: -9px; }
-.pin-tr { top: -9px; right: -9px; }
-.pin-bl { bottom: -9px; left: -9px; }
-.pin-br { bottom: -9px; right: -9px; }
+.pin-tl { top: -10px; left: -10px; }
+.pin-tr { top: -10px; right: -10px; }
+.pin-bl { bottom: -10px; left: -10px; }
+.pin-br { bottom: -10px; right: -10px; }
 
-/* Left Column: Styled as Kraft Board Container */
-div[data-testid="column"]:first-child [data-testid="stVerticalBlockBorderWrapper"] {
+/* ══════════════════════════════════════════════════════════════════════════════
+   LEFT KRAFT PINBOARD CONTAINER (Container 1)
+   ══════════════════════════════════════════════════════════════════════════════ */
+div[data-testid="stColumn"]:first-child [data-testid="stLayoutWrapper"] {
     position: relative !important;
-    background: #d5b387 !important;
+    background-color: #d6b284 !important;
     background-image: 
-        radial-gradient(#c7a070 15%, transparent 16%),
-        radial-gradient(#ba915d 15%, transparent 16%) !important;
+        radial-gradient(#c69f6e 15%, transparent 16%),
+        radial-gradient(#ba9260 15%, transparent 16%) !important;
     background-size: 20px 20px !important;
     background-position: 0 0, 10px 10px !important;
-    border: 1px solid #b58d57 !important;
+    border: 2px solid #a87e45 !important;
     border-radius: 6px !important;
-    padding: 24px 20px 20px 20px !important;
-    box-shadow: 6px 9px 22px rgba(0,0,0,0.6), inset 0 0 35px rgba(90,50,15,0.22) !important;
+    padding: 24px 20px !important;
+    box-shadow: 6px 9px 24px rgba(0,0,0,0.65), inset 0 0 40px rgba(90,50,15,0.22) !important;
 }
 
-/* Right Column: Styled as Parchment Scrapbook Sheet */
-div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"] {
+/* ══════════════════════════════════════════════════════════════════════════════
+   RIGHT PARCHMENT SCRAPBOOK SHEET (Container 2)
+   ══════════════════════════════════════════════════════════════════════════════ */
+div[data-testid="stColumn"]:last-child [data-testid="stLayoutWrapper"] {
     position: relative !important;
-    background: #fbf6ec !important;
+    background-color: #fcf7ec !important;
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(235, 218, 185, 0.45) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(215, 195, 160, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 10% 20%, rgba(235, 218, 185, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(215, 195, 160, 0.45) 0%, transparent 50%),
         radial-gradient(#ebdec9 10%, transparent 11%) !important;
     background-size: 100% 100%, 100% 100%, 30px 30px !important;
-    border: 1px solid #e1d1b7 !important;
-    border-radius: 6px !important;
+    border: 1px solid #dfd0b6 !important;
+    border-radius: 8px !important;
     padding: 35px 35px 40px 35px !important;
-    box-shadow: 8px 14px 32px rgba(0,0,0,0.65), inset 0 0 60px rgba(160,120,70,0.18) !important;
+    box-shadow: 8px 14px 34px rgba(0,0,0,0.7), inset 0 0 60px rgba(160,120,70,0.18) !important;
+}
+
+/* Ensure inner vertical blocks and rows inside containers are transparent */
+[data-testid="stLayoutWrapper"] > [data-testid="stVerticalBlock"],
+div[data-testid="stColumn"]:last-child [data-testid="stHorizontalBlock"],
+div[data-testid="stColumn"]:last-child [data-testid="stHorizontalBlock"] > div {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 /* Washi Header & Kraft Subtitle */
@@ -101,8 +115,8 @@ div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"
     font-family: 'Caveat', cursive;
     font-size: 2.3rem;
     font-weight: 700;
-    color: #2a170b;
-    margin-bottom: 6px;
+    color: #241407;
+    margin-bottom: 4px;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
@@ -110,9 +124,10 @@ div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"
     gap: 8px;
 }
 .kraft-subtitle {
+    text-align: center;
     font-family: 'Patrick Hand', cursive;
     font-size: 1.15rem;
-    color: #634327;
+    color: #5c3c21;
     margin-bottom: 14px;
     border-bottom: 2px wavy #a88252;
     padding-bottom: 4px;
@@ -127,9 +142,9 @@ div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"
 .stSelectbox label,
 .stTextArea label {
     font-family: 'Special Elite', monospace !important;
-    font-size: 0.88rem !important;
+    font-size: 0.9rem !important;
     letter-spacing: 1.5px !important;
-    color: #4a321d !important;
+    color: #3b2513 !important;
     text-transform: uppercase !important;
     margin-bottom: 5px !important;
 }
@@ -140,7 +155,7 @@ div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"
 .stTextInput input {
     background-color: #fff9ed !important;
     background: #fff9ed !important;
-    color: #2b180d !important;
+    color: #221206 !important;
     border: 1.5px solid #cfb890 !important;
     border-radius: 5px !important;
     font-family: 'Patrick Hand', cursive !important;
@@ -160,15 +175,15 @@ div[data-testid="column"]:last-child [data-testid="stVerticalBlockBorderWrapper"
 .stSelectbox div[data-baseweb="select"] *,
 .stSelectbox div[data-baseweb="select"] span,
 .stSelectbox div[data-baseweb="select"] svg {
-    color: #2b180d !important;
-    fill: #2b180d !important;
+    color: #221206 !important;
+    fill: #221206 !important;
     font-family: 'Patrick Hand', cursive !important;
     font-size: 1.15rem !important;
 }
 
 /* Note 1 (Written Notes): Cream Lined Paper Textarea */
-div[data-testid="column"]:first-child .stTextArea textarea,
-div[data-testid="column"]:first-child .stTextArea div[data-baseweb="textarea"] {
+div[data-testid="stColumn"]:last-child div[data-testid="stHorizontalBlock"] div[data-testid="stColumn"]:first-child .stTextArea textarea,
+div[data-testid="stColumn"]:last-child div[data-testid="stHorizontalBlock"] div[data-testid="stColumn"]:first-child .stTextArea div[data-baseweb="textarea"] {
     background-color: #fffdf6 !important;
     background: #fffdf6 !important;
     background-image: 
@@ -178,7 +193,7 @@ div[data-testid="column"]:first-child .stTextArea div[data-baseweb="textarea"] {
     background-position: 0 0, 0 8px !important;
     border: 1.5px solid #d4c5a9 !important;
     border-radius: 5px !important;
-    color: #2b180d !important;
+    color: #221206 !important;
     font-family: 'Patrick Hand', cursive !important;
     font-size: 1.25rem !important;
     line-height: 28px !important;
@@ -187,8 +202,8 @@ div[data-testid="column"]:first-child .stTextArea div[data-baseweb="textarea"] {
 }
 
 /* Note 2 (Spoken Context): Cream Grid Paper Textarea */
-div[data-testid="column"]:last-child .stTextArea textarea,
-div[data-testid="column"]:last-child .stTextArea div[data-baseweb="textarea"] {
+div[data-testid="stColumn"]:last-child div[data-testid="stHorizontalBlock"] div[data-testid="stColumn"]:last-child .stTextArea textarea,
+div[data-testid="stColumn"]:last-child div[data-testid="stHorizontalBlock"] div[data-testid="stColumn"]:last-child .stTextArea div[data-baseweb="textarea"] {
     background-color: #fbfbf4 !important;
     background: #fbfbf4 !important;
     background-image: 
@@ -197,7 +212,7 @@ div[data-testid="column"]:last-child .stTextArea div[data-baseweb="textarea"] {
     background-size: 16px 16px !important;
     border: 1.5px solid #d4c5a9 !important;
     border-radius: 5px !important;
-    color: #2b180d !important;
+    color: #221206 !important;
     font-family: 'Patrick Hand', cursive !important;
     font-size: 1.25rem !important;
     line-height: 24px !important;
@@ -258,23 +273,23 @@ input::placeholder {
 /* Scrapbook Main Titles */
 .scrap-entry-meta {
     font-family: 'Special Elite', monospace;
-    font-size: 0.85rem;
-    color: #7d654c;
+    font-size: 0.9rem;
+    color: #6d543e;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 6px;
 }
 .scrap-title {
     font-family: 'Caveat', cursive;
-    font-size: 4.2rem;
+    font-size: 4.5rem;
     font-weight: 700;
-    color: #1e130a;
+    color: #1a0e05;
     line-height: 1.05;
     margin: 0;
     padding: 0;
 }
 .scrap-title-underline {
-    width: 230px;
+    width: 250px;
     height: 4px;
     background: #8b2b1b;
     border-radius: 2px;
@@ -284,8 +299,8 @@ input::placeholder {
 }
 .scrap-subtitle {
     font-family: 'Patrick Hand', cursive;
-    font-size: 1.3rem;
-    color: #5c4531;
+    font-size: 1.35rem;
+    color: #4a331f;
     margin-bottom: 24px;
     font-style: italic;
 }
@@ -295,7 +310,7 @@ div.stButton > button {
     background: linear-gradient(180deg, #78221b 0%, #52130e 100%) !important;
     color: #faebd7 !important;
     font-family: 'Special Elite', monospace !important;
-    font-size: 1.2rem !important;
+    font-size: 1.25rem !important;
     font-weight: bold !important;
     letter-spacing: 2px !important;
     border: 2px dashed #a44840 !important;
@@ -319,7 +334,7 @@ div.stButton > button:active {
 /* Desk Whisper Note */
 .desk-whisper {
     font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #cfbba6;
     font-style: italic;
 }
